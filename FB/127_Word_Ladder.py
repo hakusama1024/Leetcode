@@ -7,9 +7,12 @@ endWord = "cog"
 
 def wordladder(beginWord, endWord, arr):
     dq = collections.deque()
-    dic = set(arr)
+    dic = {} 
+    for i in arr:
+        dic[i] = True 
     res = []
     helper(beginWord, 0, dic, [], endWord, res)
+    print len(res)
     print res
 
 def helper(cur, po, dic, curlist, endWord, res):
@@ -22,8 +25,10 @@ def helper(cur, po, dic, curlist, endWord, res):
         for j in "abcdefghijklmnopqrstuz":
             if cur[i] != j:
                 new = l + j + r
-                if new in dic:
-                    dic.remove(new)
+                if new in dic and dic[new]:
+                    dic[new] = False
                     helper(new, po+1, dic, curlist+[new], endWord, res)
+                    dic[new] = True 
+
 
 wordladder(beginWord, endWord, arr)
