@@ -1,36 +1,16 @@
-from Queue import PriorityQueue
+def test(arr):
+    if not arr : return arr
+    size = len(arr)
+    if size == 0 : return arr
+    l = 0
+    r = size-1
+    while l < r:
+        m = l+(r-l)/2
+        if arr[m] > arr[r]:
+            l = m+1
+        if arr[m] < arr[r]:
+            r = m
+    print arr[l]
 
-def test(s, k):
-    size = len(s) 
-    if size == 0 : return ""
-    res = []
-    dic = {}
-    for i in range(size):
-        if s[i] not in dic:
-            dic[s[i]] = -1
-    for i in range(size):
-        if dic[s[i]] == -1:
-            res.append(s[i])
-            dic[s[i]] = len(res)-1
-        else:
-            while len(res) - dic[s[i]] < k:
-                res.append('_')
-            res.append(s[i])
-            dic[s[i]] = len(res)-1
-    print res
-
-
-
-
-def test1(s, k):
-
-
-
-
-
-
-s = "BAACDCBBAA"
-print s
-k = 3
-
-test(s, k)
+arr = [4, 5 ,6, 7, 8,9, 1, 2, 3]
+test(arr)
