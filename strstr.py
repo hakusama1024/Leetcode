@@ -9,6 +9,7 @@ def strstr(hay, nee):
         if nee[i] == nee[j]:
             j += 1
             l[i] = j
+    print l
 
     j = 0
     res = []
@@ -23,7 +24,7 @@ def strstr(hay, nee):
     print res
 
 hay = "basjslfksjsjfds"
-nee = "js"
+nee = "ababcabcabcabc"
 print hay
 print nee
 strstr(hay, nee)
